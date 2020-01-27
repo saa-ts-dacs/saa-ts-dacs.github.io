@@ -1,0 +1,42 @@
+section.page__content p {
+	font-size: 0.8em;
+}
+
+section.page__content > ul > li {
+	font-size: 0.8em;
+}
+
+ul.chapter-parts {
+	margin-left: 20px;
+}
+
+@media only screen and (min-width: 1025px) {
+	ul.chapter-parts {
+		font-size: 0.75rem;
+		margin-bottom: 10px;
+	}
+	.sub-list ul.chapter-parts li a {
+		font-size: 1em;
+	}
+}
+
+.page__content .nav__list a {
+	opacity: 0.75;
+}
+
+.page__content .nav__list .sub-list span.nav__sub-title {
+	opacity: 0.75;
+}
+
+.page__content .nav__list a:hover {
+	opacity: 1;
+	text-decoration: none !important;
+}
+
+.sub-list ul li a {
+	font-size: 0.75em;
+}
+
+.full-contents .nav__sub-title {
+	font-size: 1em;
+}

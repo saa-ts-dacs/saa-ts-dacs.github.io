@@ -1,0 +1,6 @@
+---
+title: About
+---
+
+{% capture my_include %}{% include_relative dacs/README.md %}{% endcapture %}
+{{ my_include | markdownify }}

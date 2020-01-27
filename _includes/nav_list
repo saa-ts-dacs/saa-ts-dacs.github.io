@@ -1,0 +1,114 @@
+{% assign navigation = site.data.navigation[include.nav] %}
+
+<nav class="nav__list">
+  {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  
+  {% assign url_parts = page.url | split: '/' %}
+  {% assign url_parts_size = url_parts | size %}
+  {% assign rm = url_parts | last %}
+  {% assign base_url = page.url | replace: rm %}
+  {% assign parts = site.pages | sort:"url" %}
+
+  <ul class="nav__items">
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/02_preface.html' | relative_url }}'>Preface</a></span></li>
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/04_statement_of_principles.html' | relative_url }}'>Statement of Principles</a></span></li>
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/05_overview_of_archival_description.html' | relative_url }}'>Overview of Archival Description</a></span></li>
+    <li><span class="nav__sub-title">Part I</span>
+      <ul>
+      {% for node in parts %}
+        {% assign node_url_parts = node.url | split: '/' %}
+        {% assign node_url_parts_size = node_url_parts | size %}
+        {% assign filename = node_url_parts | last %}
+
+        {% if node_url_parts contains "06_part_I" %}
+          {% if filename contains "00_" or filename contains "chapter" %}
+            {% if node.title and node.title != "404: Page not found" %}
+              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+              {% if node_url_parts[3] == url_parts[3] %}
+                {% if filename contains "chapter" or node_url_parts_size == 2 %}
+
+                {% else %}
+                  <ul class="chapter-parts">
+                    {% for node in site.pages %}
+                      {% if node.url contains base_url %}
+                        {% assign node_url_parts = node.url | split: '/' %}
+                        {% assign node_url_parts_size = node_url_parts | size %}
+                        {% assign subfilename = node_url_parts | last %}
+                        {% if subfilename != filename %}
+                          <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endif %}
+
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </li>
+
+    <li><span class="nav__sub-title">Part II</span>
+    <ul>
+      {% for node in parts %}
+        {% assign node_url_parts = node.url | split: '/' %}
+        {% assign node_url_parts_size = node_url_parts | size %}
+        {% assign filename = node_url_parts | last %}
+
+        {% if node_url_parts contains "08_part_II" %}
+          {% if filename contains "00_" or filename contains "chapter" %}
+            {% if node.title and node.title != "404: Page not found" %}
+              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+              {% if node_url_parts[3] == url_parts[3] %}
+                {% if filename contains "chapter" or node_url_parts_size == 2 %}
+
+                {% else %}
+                  <ul class="chapter-parts">
+                    {% for node in site.pages %}
+                      {% if node.url contains base_url %}
+                        {% assign node_url_parts = node.url | split: '/' %}
+                        {% assign node_url_parts_size = node_url_parts | size %}
+                        {% assign subfilename = node_url_parts | last %}
+                        {% if subfilename != filename %}
+                          <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endif %}
+
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </li>
+
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/changelog.html' | relative_url }}'>Changelog</a></span></li>
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/09_appendices/appendices.html' | relative_url }}'>Appendices</a></span>
+      <ul>
+      {% for node in parts %}
+        {% assign node_url_parts = node.url | split: '/' %}
+        {% assign node_url_parts_size = node_url_parts | size %}
+        {% assign filename = node_url_parts | last %}
+
+        
+        {% if node_url_parts contains "09_appendices" %}
+          {% if node_url_parts[2] == url_parts[2] %}
+            {% if filename contains "00_" or filename contains "chapter %}
+
+            {% else %}
+              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</nav>

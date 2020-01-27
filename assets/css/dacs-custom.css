@@ -1,0 +1,20 @@
+ul.chapter-parts {
+	margin-left: 20px;
+}
+
+@media only screen and (min-width: 1281px) {
+	#main {
+		max-width: 1600px;
+	}
+}
+
+@media only screen and (min-width: 1025px) {
+	.sidebar {
+		direction: rtl;
+		padding-left: 20px;
+	}
+
+	.sidebar nav.nav__list {
+		direction: ltr;
+	}
+}
