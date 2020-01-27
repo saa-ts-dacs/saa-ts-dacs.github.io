@@ -48,18 +48,11 @@ footer:
       icon: "fab fa-fw fa-instagram"
       # url:
 
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "single"
-
 # Build settings
 markdown: kramdown
 #theme: minima
-theme: minimal-mistakes-jekyll
-remote-theme: "mmistakes/minimal-mistakes@4.18.1"
+#theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.18.1"
 minimal_mistakes_skin    : "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 plugins:
@@ -68,6 +61,13 @@ plugins:
   - jekyll-titles-from-headings
   - jekyll-include-cache
   - jekyll-remote-theme
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "single"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
