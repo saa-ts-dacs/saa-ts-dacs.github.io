@@ -35,7 +35,9 @@ excerpt: "[Version 2019.0.2](dacs/changelog.html#dacs-201902)"
         {% if node_url_parts contains "06_part_I" %}
           {% if filename contains "00_" or filename contains "chapter" %}
             {% if node.title and node.title != "404: Page not found" %}
-              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+              {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
+              {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
+              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{ chapter_title | strip_html | strip_newlines | replace: "------", ": " }}</a></li>
               <ul class="chapter-parts">
                 {% for node in site.pages %}
                   {% if node.url contains node_url_parts[3]  %}
@@ -65,7 +67,9 @@ excerpt: "[Version 2019.0.2](dacs/changelog.html#dacs-201902)"
         {% if node_url_parts contains "08_part_II" %}
           {% if filename contains "00_" or filename contains "chapter" %}
             {% if node.title and node.title != "404: Page not found" %}
-              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{node.title}}</a></li>
+              {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
+              {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
+              <li><a href='{{ node.url | prepend: site.baseurl }}'>{{ chapter_title | strip_html | strip_newlines | replace: "------", ": " }}</a></li>
               <ul class="chapter-parts">
                 {% for node in site.pages %}
                   {% if node.url contains node_url_parts[3]  %}
