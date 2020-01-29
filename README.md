@@ -62,6 +62,41 @@ git push origin master
 ```
 
 
+## Updating to New Versions of DACS
+
+1. Make sure you have a clone of this repo using the `--recurse-submodules` option
+
+```
+git clone --recurse-submodules https://github.com/saa-ts-dacs/saa-ts-dacs.github.io
+cd saa-ts-dacs.github.io
+```
+
+2. If you are not working in a fresh clone, pull the latest updates from the DACS repo
+
+```
+git pull --recurse-submodules
+git submodule update --remote --recursive
+```
+
+3. Update the version number as the `subtitle` option in the `_config.yml` file
+
+![Screenshot showing how to update the version number on line 17 of _config.yml](updating.png)
+
+4. (Optional) If you were able to install the dependencies, it's a good idea to test the site locally.
+
+```
+jekyll serve
+```
+* Navigate to http://localhost:4000
+* Ctrl + C to stop
+
+5. Push updates back to the master branch
+
+```
+git add .
+git commit -m "Updated DACS to version 2019.0.3"
+git push origin master
+```
 
 ## Contributing
 
