@@ -94,7 +94,7 @@
     </li>
 
     <li><span class="nav__sub-title"><a href='{{ '/dacs/changelog.html' | relative_url }}'>Changelog</a></span></li>
-    <li><span class="nav__sub-title"><a href='{{ '/dacs/09_appendices/appendices.html' | relative_url }}'>Appendices</a></span>
+    <li><span class="nav__sub-title"><a href='{{ '/dacs/09_appendices/00_appendices.html' | relative_url }}'>Appendices</a></span>
       <ul>
       {% for node in parts %}
         {% assign node_url_parts = node.url | split: '/' %}
