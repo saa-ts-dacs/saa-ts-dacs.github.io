@@ -17,9 +17,10 @@ title: "Describing Archives: A Content Standard"
 subtitle: "Version 2019.0.3"
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Describing Archives: A Content Standard (DACS) is an output-neutral set of rules for 
+  describing archives, personal papers, and manuscript collections, and can be applied 
+  to all material types. It is the U.S. implementation of international standards (i.e., 
+  ISAD[G] and ISAAR[CPF]) for the description of archival materials and their creators.
 #baseurl: "/static/dacs" # the subpath of your site, e.g. /blog
 baseurl: ""
 url: "https://saa-ts-dacs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
