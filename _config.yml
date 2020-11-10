@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "Describing Archives: A Content Standard"
-subtitle: "Version 2019.0.3"
+subtitle: "Version 2019.0.3.1"
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Describing Archives: A Content Standard (DACS) is an output-neutral set of rules for 
