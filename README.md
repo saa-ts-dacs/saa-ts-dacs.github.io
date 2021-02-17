@@ -98,6 +98,14 @@ git commit -m "Updated DACS to version 2019.0.3"
 git push origin master
 ```
 
+## Updating link to PDF version
+
+* The PDF URL and version number are listed in `_config.yml`
+* Update them here when building the site
+
+![Screenshot showing how to update the PDF URL and version on lines 18 and 19 of _config.yml](updatingPDF.png)
+
+
 ## Contributing
 
 The site is maintained by the [Technical Subcommittee on Describing Archives: A Content Standard (DACS)](https://www2.archivists.org/groups/technical-subcommittee-on-describing-archives-a-content-standard-dacs), but pull requests to improve the site are welcome.

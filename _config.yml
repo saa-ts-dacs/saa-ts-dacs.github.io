@@ -15,6 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 title: "Describing Archives: A Content Standard"
 subtitle: "Version 2019.0.4"
+pdf-link: "https://files.archivists.org/pubs/DACS_2019.0.3_Version.pdf"
+pdf-version: "PDF Version 2019.0.3"
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Describing Archives: A Content Standard (DACS) is an output-neutral set of rules for 
