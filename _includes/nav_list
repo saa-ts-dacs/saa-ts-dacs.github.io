@@ -23,13 +23,13 @@
         {% assign filename = node_url_parts | last %}
 
         {% if node_url_parts contains "06_part_I" %}
-          {% if filename contains "00_" or filename contains "chapter" %}
+          {% if filename contains "00_" or filename contains "chapter" or filename contains "01_introduction_to_describing_archival_materials" %}
             {% if node.title and node.title != "404: Page not found" %}
               {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
               {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
               <li><a href='{{ node.url | prepend: site.baseurl }}'>{{ chapter_title | strip_html | strip_newlines | replace: "------", ": " }}</a></li>
               {% if node_url_parts[3] == url_parts[3] %}
-                {% if filename contains "chapter" or node_url_parts_size == 2 %}
+                {% if filename contains "chapter" or node_url_parts_size == 2 or filename contains "01_introduction_to_describing_archival_materials" %}
 
                 {% else %}
                   <ul class="chapter-parts">
@@ -62,13 +62,13 @@
         {% assign filename = node_url_parts | last %}
 
         {% if node_url_parts contains "08_part_II" %}
-          {% if filename contains "00_" or filename contains "chapter" %}
+          {% if filename contains "00_" or filename contains "chapter" or filename contains "01_introduction_to_archival_authority_records" or filename contains "08_sample_archival_authority_record" %}
             {% if node.title and node.title != "404: Page not found" %}
               {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
               {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
               <li><a href='{{ node.url | prepend: site.baseurl }}'>{{ chapter_title | strip_html | strip_newlines | replace: "------", ": " }}</a></li>
               {% if node_url_parts[3] == url_parts[3] %}
-                {% if filename contains "chapter" or node_url_parts_size == 2 %}
+                {% if filename contains "chapter" or node_url_parts_size == 2 or filename contains "01_introduction_to_archival_authority_records" or filename contains "08_sample_archival_authority_record" %}
 
                 {% else %}
                   <ul class="chapter-parts">

@@ -32,7 +32,7 @@ header:
         {% assign filename = node_url_parts | last %}
 
         {% if node_url_parts contains "06_part_I" %}
-          {% if filename contains "00_" or filename contains "chapter" %}
+          {% if filename contains "00_" or filename contains "chapter" or filename contains "01_introduction_to_describing_archival_materials" %}
             {% if node.title and node.title != "404: Page not found" %}
               {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
               {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
@@ -64,7 +64,7 @@ header:
         {% assign filename = node_url_parts | last %}
 
         {% if node_url_parts contains "08_part_II" %}
-          {% if filename contains "00_" or filename contains "chapter" %}
+          {% if filename contains "00_" or filename contains "chapter" or filename contains "01_introduction_to_archival_authority_records" or filename contains "08_sample_archival_authority_record" %}
             {% if node.title and node.title != "404: Page not found" %}
               {% assign node_title = node.content | markdownify | newline_to_br | split: '</h1>' %}
               {% assign chapter_title = node_title[0] | replace: "<br />", "---" %}
