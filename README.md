@@ -98,6 +98,15 @@ git commit -m "Updated DACS to version 2019.0.3"
 git push origin master
 ```
 
+6. (Only if its not updating.)
+
+You may need to use these commands between step 1 and 2:
+
+```
+git submodule init
+git submodule update
+```
+
 ## Updating link to PDF version
 
 * The PDF URL and version number are listed in `_config.yml`
