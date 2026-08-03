@@ -1,0 +1,73 @@
+#TODO: Add Jekyll validation after dependency modernization.
+# Current site builds successfully through GitHub Pages,
+# but local Action-based builds require a newer dependency strategy.
+name: Update DACS Website
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dacs:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repository
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          
+#      - name: Set up Ruby
+#        uses: ruby/setup-ruby@v1
+#        with:
+#          ruby-version: '3.1'
+#          bundler: '2.4.22'
+#          bundler-cache: false
+
+#      - name: Install dependencies
+#        run: |
+#          gem install bundler -v 2.4.22
+#          bundle install --verbose
+
+      - name: Update DACS submodule
+        run: |
+          git submodule update --remote --recursive
+          git -C dacs fetch --tags
+
+      - name: Update website version
+        run: |
+          VERSION=$(git -C dacs describe --tags --abbrev=0)
+          echo "Latest DACS version: $VERSION"
+
+          sed -i "s/^subtitle:.*/subtitle: \"$VERSION\"/" _config.yml
+
+      - name: Show changes
+        run: |
+          git status
+          git diff
+
+#      - name: Build Jekyll site
+#        run: bundle exec jekyll build
+
+#      - name: Upload generated site
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: dacs-website
+#          path: _site
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          VERSION=$(git -C dacs describe --tags --abbrev=0)
+
+          git add dacs _config.yml
+          git commit -m "Update DACS to $VERSION" || echo "No DACS updates"
+
+      - name: Push update
+        run: git push origin master
